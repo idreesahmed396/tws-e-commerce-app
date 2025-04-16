@@ -12,6 +12,7 @@ pipeline {
         DOCKER_IMAGE_TAG = "${BUILD_NUMBER}"
         GITHUB_CREDENTIALS = credentials('github-credentials')
         GIT_BRANCH = "master"
+        GIT_REPO="https://github.com/idreesahmed396/tws-e-commerce-app.git"
        
     }
     
@@ -27,7 +28,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 script {
-                    clone("https://github.com/idreesahmed396/tws-e-commerce-app.git","master")
+                    clone(GIT_REPO,GIT_BRANCH)
                 }
             }
         }
