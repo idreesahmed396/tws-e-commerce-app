@@ -4,9 +4,11 @@ pipeline {
     agent any
     
     environment {
+        // Your Docker Hub username as a reusable variable
+        DOCKER_USERNAME = 'idrees396'
         // Update the main app image name to match the deployment file
-        DOCKER_IMAGE_NAME = 'idrees396/easyshop-app'
-        DOCKER_MIGRATION_IMAGE_NAME = 'idrees396/easyshop-migration'
+        DOCKER_IMAGE_NAME = '${DOCKER_USERNAME}/easyshop-app'
+        DOCKER_MIGRATION_IMAGE_NAME = '${DOCKER_USERNAME}/easyshop-migration'
         DOCKER_IMAGE_TAG = "${BUILD_NUMBER}"
         GITHUB_CREDENTIALS = credentials('github-credentials')
         GIT_BRANCH = "master"
