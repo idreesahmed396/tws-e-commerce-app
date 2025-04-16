@@ -28,7 +28,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 script {
-                    clone(GIT_REPO,GIT_BRANCH)
+                    clone(env.GIT_REPO,env.GIT_BRANCH)
                 }
             }
         }
